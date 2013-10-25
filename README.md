@@ -51,7 +51,12 @@ Cl
 
 We now have the type and coordinates of all atoms of the molecule.
 
-## We know use PACKMOL
+## We now prepare PACKMOL: input file to define ScCl3
+
+L. Martinez, R. Andrade, E. G. Birgin, J. M. Martinez, 
+PACKMOL: A package for building initial configurations for molecular dynamics simulations. 
+Journal of Computational Chemistry, 30:2157-2164,2009.
+
 
 http://www.ime.unicamp.br/~martinez/packmol/
 
@@ -65,3 +70,35 @@ Cl    3.6716 1.70316 3.4428
 Cl    2.34595 3.3813 0.5673
 Cl    0.0064 1.01126 1.89065
 ```
+
+## PACKMOL: the input file defining the supercell
+
+```
+$ cat ScCl3.inp
+#
+# Supercell of 10 ScCl3 in a cubic cell of length 10.167 Angstrom
+#
+
+# All atoms from diferent molecules will be at least 2.0 Angstroms apart
+# from each other at the solution.
+
+tolerance 2.0
+
+# The files are in the simple Molden-xyz format
+
+filetype xyz
+
+# The name of the output file.
+
+output ScCl3_cell.xyz
+
+# number of molecules of ScCl3 (as define in an external .xyz file)
+
+structure ScCl3.xyz 
+  number 10 
+  inside cube 0. 0. 0. 10.167
+end structure
+```
+
+A file ScCl3_cell.xyz has been generated. It is a cubic cell of 10.167 Ang that contains 10 molecules of ScCl3.
+No atom have closest nearest neighbor than 2 Ang.
