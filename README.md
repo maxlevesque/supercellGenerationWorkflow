@@ -20,6 +20,18 @@ Nobody can answer but you. I'll say 10 only for my purpose today.
 
 10 molecules times 105.1 Angstroms^3 per molecule = 1051 Angstroms^3 = 1.051 nm^3. For the sake of simplicity and numerical efficiency of my simulations (Ewald summations are more efficient in cubic cells), I want a cubic supercell. Its length is thus 1051^(1/3) Angstroms = 10.167 Angstroms.
 
+## What is the geometry of your molecule (ScCl3 here)
+
+In Mathematica (9+?), type:
+```
+ChemicalData["ScCl3", "MoleculePlot", "LongDescription"]
+ChemicalData["ScCl3", "MoleculePlot"]
+ChemicalData["ScCl3", "VertexTypes", "LongDescription"]
+ChemicalData["ScCl3", "VertexTypes"] // TableForm
+```
+
+The answer is 
+
 ## Use PACKMOL
 
 http://www.ime.unicamp.br/~martinez/packmol/
