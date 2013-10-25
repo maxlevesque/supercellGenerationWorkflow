@@ -28,11 +28,40 @@ ChemicalData["ScCl3", "MoleculePlot", "LongDescription"]
 ChemicalData["ScCl3", "MoleculePlot"]
 ChemicalData["ScCl3", "VertexTypes", "LongDescription"]
 ChemicalData["ScCl3", "VertexTypes"] // TableForm
+ChemicalData["ScCl3", "AtomPositions", "LongDescription"]
+ChemicalData["ScCl3", "AtomPositions"] // TableForm
 ```
 
-The answer is 
+The answer is a figure of the molecule, plus:
+```
+"list of atom types at graph vertices"
+Sc
+Cl
+Cl
+Cl
 
-## Use PACKMOL
+"list of 3D coordinates of atoms (in picometers)"
+{
+ {-2.3977, -9.5735, 9.9297},
+ {167.16, -29.684, 144.28},
+ {34.595, 138.13, -143.27},
+ {-199.36, -98.874, -10.935}
+}
+```
+
+We now have the type and coordinates of all atoms of the molecule.
+
+## We know use PACKMOL
 
 http://www.ime.unicamp.br/~martinez/packmol/
 
+PACKMOL needs a xyz file (it may be a pdb) that contains exactly what we just extracted:
+```
+$ cat ScCl3.xyz
+4
+ScCl3
+Sc    1.976023 1.904265 2.099297
+Cl    3.6716 1.70316 3.4428   
+Cl    2.34595 3.3813 0.5673
+Cl    0.0064 1.01126 1.89065
+```
